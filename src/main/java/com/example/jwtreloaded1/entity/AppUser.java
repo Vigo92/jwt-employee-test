@@ -28,6 +28,7 @@ public class AppUser implements UserDetails {
     private String password;
 
     @Email
+    @Column(unique = true)
     private String email;
 
     @Enumerated(value = EnumType.STRING)

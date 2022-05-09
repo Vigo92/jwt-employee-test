@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -16,6 +17,6 @@ public class AuthRequest {
     @Email
     private String email;
 
-    @NotNull
+    @NotBlank(message = "please input password")
     private String password;
 }

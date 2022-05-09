@@ -20,7 +20,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PreAuthorize("hasAnyRole({'ADMIN','USER'})")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/save")
     public ResponseEntity<?> saveEmployee(@RequestBody @Valid EmployeeRequest employeeRequest) {
         return new ResponseEntity<>(employeeService.saveEmployee(employeeRequest), HttpStatus.OK);

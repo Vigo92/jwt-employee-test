@@ -14,12 +14,13 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class AppUserRequest {
 
-    @NotBlank
+    @NotBlank(message = "username cannot be blank")
     private String userName;
 
-    @NotBlank
+    @NotBlank(message = "password cannot be blank")
     private String password;
 
     @Email
+    @NotBlank(message = "email can not be blank")
     private String email;
 }

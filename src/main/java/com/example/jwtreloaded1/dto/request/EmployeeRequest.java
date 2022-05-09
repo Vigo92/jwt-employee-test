@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -17,15 +18,20 @@ import java.time.LocalDate;
 @NotNull
 public class EmployeeRequest {
 
-    @NotNull
+    @NotBlank(message = "First name can not be empty")
     private String firstName;
-    @NotNull
+
+    @NotBlank(message = "Last name can not be empty")
     private String lastName;
 
+    @NotBlank
     private String address;
+
     @Email(message = "Email must be well formatted like \"example@gmail.com\" ")
+    @NotBlank
     private String email;
 
+    @NotBlank
     private Integer age;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
