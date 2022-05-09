@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/registration")
 public class RegistrationController {
@@ -20,13 +22,13 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public ResponseEntity<?> registerUser(@RequestBody AppUserRequest appUserRequest){
+    public ResponseEntity<?> registerUser(@RequestBody @Valid AppUserRequest appUserRequest){
         return new ResponseEntity<>(appUserService.saveUser(appUserRequest) , HttpStatus.OK);
     }
 
 
     @PostMapping("/admin")
-    public ResponseEntity<?> registerAdmin(@RequestBody AppUserRequest appUserRequest){
+    public ResponseEntity<?> registerAdmin(@RequestBody @Valid AppUserRequest appUserRequest){
         return new ResponseEntity<>(appUserService.saveAdmin(appUserRequest) , HttpStatus.OK);
     }
 
