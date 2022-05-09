@@ -31,7 +31,6 @@ public class EmployeeRequest {
     @NotBlank
     private String email;
 
-    @NotBlank
     private Integer age;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

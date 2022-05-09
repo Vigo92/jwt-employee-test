@@ -22,23 +22,43 @@ public class AppUserServiceImpl implements AppUserService {
 
     @Override
     public AppUserResponse saveUser(AppUserRequest appUserRequest) {
-        AppUser appUser = projectMapper.convertAppReqToEntity(appUserRequest);
+        AppUser appUser = new AppUser();
+        appUser.setUserName(appUserRequest.getUserName());
+        appUser.setEmail(appUser.getEmail());
+        appUser.setPassword(appUser.getPassword());
         appUser.setRole(Role.USER);
         appUserRepository.save(appUser);
 
-        return projectMapper.convAppUserToResp(appUser);
+        return convertUserToDto(appUser);
     }
     @Override
     public AppUserResponse saveAdmin(AppUserRequest appUserRequest) {
-        AppUser appUser = projectMapper.convertAppReqToEntity(appUserRequest);
+        AppUser appUser = new AppUser();
+        appUser.setUserName(appUserRequest.getUserName());
+        appUser.setEmail(appUserRequest.getEmail());
+        appUser.setPassword(appUserRequest.getPassword());
         appUser.setRole(Role.ADMIN);
         appUserRepository.save(appUser);
 
-        return projectMapper.convAppUserToResp(appUser);
+        return convertUserToDto(appUser);
     }
 
     @Override
     public void deleteUser(Long id) {
         AppUser appUser = appUserRepository.findById(id).orElseThrow(()->new RuntimeException("User Not Found"));
     }
+
+    private AppUserResponse convertUserToDto(AppUser appUser){
+        AppUserResponse appUserResponse = new AppUserResponse();
+        appUserResponse.setUserName(appUser.getUsername());
+        appUserResponse.setEmail(appUser.getEmail());
+        appUserResponse.setPassword(appUser.getPassword());
+        appUserResponse.setId(appUser.getId());
+
+        System.out.println(appUser);
+        System.out.println(appUser.getUsername());
+        System.out.println(appUserResponse);
+        return appUserResponse;
+    }
+
 }

@@ -1,14 +1,12 @@
 package com.example.jwtreloaded1.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 
@@ -24,7 +22,7 @@ public class AppUser implements UserDetails {
 
     private String userName;
 
-    @NotNull
+    @NotEmpty
     private String password;
 
     @Email
