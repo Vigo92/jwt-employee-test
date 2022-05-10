@@ -5,15 +5,14 @@ import com.example.jwtreloaded1.entity.AppUser;
 import com.example.jwtreloaded1.service.AppUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/registration")
+@CrossOrigin(origins = "*", maxAge = 3600)
+
 public class RegistrationController {
     private final AppUserService appUserService;
 
