@@ -14,11 +14,9 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
-    private final ProjectMapper projectMapper;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ProjectMapper projectMapper) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
-        this.projectMapper = projectMapper;
     }
 
     @Override

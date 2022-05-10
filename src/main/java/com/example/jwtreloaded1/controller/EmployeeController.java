@@ -22,31 +22,26 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/save")
     public ResponseEntity<?> saveEmployee(@RequestBody @Valid EmployeeRequest employeeRequest) {
         return new ResponseEntity<>(employeeService.saveEmployee(employeeRequest), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole({'ADMIN','USER'})")
     @GetMapping("/get/all")
     public ResponseEntity<?> getAllEmployee() {
         return new ResponseEntity<>(employeeService.getAllEmployee(), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasAnyRole({'ADMIN','USER'})")
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable Long id) {
         return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateById(@PathVariable Long id, @RequestBody @Valid EmployeeRequest employeeRequest) {
         return new ResponseEntity<>(employeeService.updateEmployee(id, employeeRequest), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public void updateById(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
