@@ -48,7 +48,6 @@ public class EmployeeController {
     }
 
 
-    @PermitAll
     @GetMapping("/welcome")
     public String Welcome() {
         return "welcome to the employee managament app";
