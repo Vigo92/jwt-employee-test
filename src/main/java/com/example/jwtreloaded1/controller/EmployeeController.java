@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 
 
@@ -51,6 +52,7 @@ public class EmployeeController {
     }
 
 
+    @PermitAll
     @GetMapping("/welcome")
     public String Welcome() {
         return "welcome to the employee managament app";
