@@ -20,7 +20,7 @@ public class JwtUtil {
 
     public String generateAccessToken(AppUser appUser) {
         return Jwts.builder()
-                .setSubject(appUser.getId() + "," + appUser.getEmail()+"," +appUser.getRole())
+                .setSubject(appUser.getId() + "," + appUser.getUserName() + "," + appUser.getRole())
                 .claim("Roles", appUser.getRole().grantedAuthorities())
                 .setIssuer("Ayodeji")
                 .setIssuedAt(new Date())

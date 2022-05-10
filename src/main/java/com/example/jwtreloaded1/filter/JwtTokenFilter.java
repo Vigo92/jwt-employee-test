@@ -2,6 +2,7 @@ package com.example.jwtreloaded1.filter;
 
 import com.example.jwtreloaded1.entity.AppUser;
 import com.example.jwtreloaded1.repository.AppUserRepository;
+import com.example.jwtreloaded1.security.MyAppUserDetails;
 import com.example.jwtreloaded1.util.JwtUtil;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -77,10 +78,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         AppUser appUser = new AppUser();
         String[] subject = jwtUtil.getSubject(accessToken).split(",");
         appUser.setId(Long.parseLong(subject[0]));
-        appUser.setEmail(subject[1]);
-        appUser.setRole(appUserRepository.findByEmail(appUser.getEmail()).get().getRole());
+        appUser.setUserName(subject[1]);
+        appUser.setRole(appUserRepository.findByUserName(appUser.getUserName()).get().getRole());
 
-
-        return appUser;
+        return new MyAppUserDetails(appUser);
     }
 }
