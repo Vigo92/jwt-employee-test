@@ -50,6 +50,6 @@ public class EmployeeController {
 
     @GetMapping("/welcome")
     public String Welcome() {
-        return "welcome to the employee managament app";
+        return "welcome to the employee management app";
     }
 }
