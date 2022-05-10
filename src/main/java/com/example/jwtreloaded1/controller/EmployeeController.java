@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/employee")
+@CrossOrigin(allowedHeaders = "*", value = "http://localhost:3000")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
