@@ -69,6 +69,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 userDetails, null, userDetails.getAuthorities()
         );
 
+        //i deleted and push as test
+        uap.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(uap);
 
     }

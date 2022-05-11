@@ -1,7 +1,6 @@
 package com.example.jwtreloaded1.config;
 
 import com.example.jwtreloaded1.filter.JwtTokenFilter;
-import com.example.jwtreloaded1.repository.AppUserRepository;
 import com.example.jwtreloaded1.security.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

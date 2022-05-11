@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthenticationApi {
 
     private final AuthenticationManager authenticationManager;

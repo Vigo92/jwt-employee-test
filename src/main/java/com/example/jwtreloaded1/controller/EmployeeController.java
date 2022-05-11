@@ -11,7 +11,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/employee")
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 public class EmployeeController {
 
     private final EmployeeService employeeService;

@@ -11,8 +11,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/registration")
-@CrossOrigin(origins = "*", maxAge = 3600)
-
 public class RegistrationController {
     private final AppUserService appUserService;
 
@@ -30,6 +28,4 @@ public class RegistrationController {
     public ResponseEntity<?> registerAdmin(@RequestBody @Valid AppUserRequest appUserRequest){
         return new ResponseEntity<>(appUserService.saveAdmin(appUserRequest) , HttpStatus.OK);
     }
-
-
 }
