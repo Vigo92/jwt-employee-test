@@ -17,7 +17,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*");
+                .allowedOrigins("https://blog4naija.herokuapp.com");
     }
 
 
@@ -27,5 +27,5 @@ public class ProjectConfig implements WebMvcConfigurer {
         return new ModelMapper();
     }
 
-    
+
 }
